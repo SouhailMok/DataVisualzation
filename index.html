@@ -6,6 +6,12 @@
   <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
 </head>
 <body>
-  <p> hello </p>
+   d3.csv("/data/titanic_data.csv", draw);
+  
+   function draw(data) {
+   
+   table(data);
+   
+  }
 </body>
 </html>
