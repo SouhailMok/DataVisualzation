@@ -3,18 +3,16 @@
 <head>
   <meta charset="utf-8">
   <script src="https://d3js.org/d3.v3.min.js"></script>
-  <script src="https://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+ 
 </head>
 <body>
   <script>
-   d3.csv("/data/titanic_data.csv", draw);
+   var data = d3.csv("/data/titanic_data.csv", draw);
   
-   function draw(data) {
-   
-   table(data);
-   
-  }
+   d3.select('p').html(data)
     
   </script>
+  
+  <p></p>
 </body>
 </html>
