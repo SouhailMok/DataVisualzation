@@ -2,18 +2,25 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
  
 </head>
 <body>
   <script>
-   var data = d3.csv("/data/titanic_data.csv");
-  
-  // load csv data
-   d3.select('.data').text(data)
+
+ var Names = "";
+  function PrintData(data){
+
+     d3.select(".dataContainer").text(data[0].Name);
+     
+  }
+  //Load csv data
+   d3.csv("./data/titanic_data.csv",PrintData)
+ 
+
    
   </script>
   
-  <p class="data"></p>
+  <p class="dataContainer"> </p>
 </body>
 </html>
