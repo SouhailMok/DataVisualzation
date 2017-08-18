@@ -3,24 +3,15 @@
 <head>
   <meta charset="utf-8">
   <script src="http://d3js.org/d3.v3.min.js"></script>
- 
+  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+  <script type="text/javascript" src="/js/DrawChart.js"></script>
 </head>
+
 <body>
-  <script>
+    <script type="text/javascript">
 
- var Names = "";
-  function PrintData(data){
+        d3.csv("./data/titanic_data.csv",PrintData);
 
-     d3.select(".dataContainer").text(data[0].Name);
-     
-  }
-  //Load csv data
-   d3.csv("./data/titanic_data.csv",PrintData)
- 
-
-   
-  </script>
-  
-  <p class="dataContainer"> </p>
+    </script>
 </body>
 </html>
