@@ -2,7 +2,7 @@
 
  var Names = "";
     
-function PrintData(data){
+function Draw(data){
 
  /*
   Data wrangling
