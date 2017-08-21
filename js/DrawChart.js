@@ -8,11 +8,13 @@ function Draw(data){
   Data wrangling
   */
 
-    // Remove row with no "emabarked" data
-     var embarkedData = data.filter(function(d) 
+   // Add new attribue to sum all passengers 
+
+    // Remove row with if "Pclass" is empty
+     var cleanData = data.filter(function(d) 
    	 { 
 
-            if (d["Embarked"] != "" ) 
+            if (d["Pclass"] != "" ) 
             { 
                 return d; 
             } 
@@ -21,28 +23,33 @@ function Draw(data){
      });
 
      // Add category for ages
-     var AgeCategoryData  = embarkedData.filter(function(d) 
+     var cleanDataWithAgeCategory  = cleanData.filter(function(d) 
      {
 
      	if (d["Age"] > 0 &&  d["Age"] < 18 ) 
             { 
-                d["AgeCategory"] = "Child";
+                d["Age category"] = "Child";
+                d["N° of passengers"] = 1;
                    return d;
             } 
 
         if (d["Age"] >= 18 &&  d["Age"] < 60 ) 
             { 
-                d["AgeCategory"] = "Adult";
+                d["Age category"] = "Adult";
+                d["N° of passengers"] = 1;
                    return d;
             } 
 
          if (d["Age"] >= 60  ) 
             { 
-                d["AgeCategory"] = "Senior";
+                d["Age category"] = "Senior";
+                d["N° of passengers"] = 1;
                    return d;
             } 
 
-      
+      // Add new attribue to sum all passengers 
+
+
 
      });
  /*
@@ -89,12 +96,30 @@ Dimple code
     myChart.addMeasureAxis("y", "Survived");
     myChart.addSeries(null, dimple.plot.bar);
     myChart.draw(); */
-	var myChart = new dimple.chart(svg, AgeCategoryData);
-   var x = myChart.addCategoryAxis("x", "AgeCategory"); 
-    
-    myChart.addMeasureAxis("y", "Survived");
-    myChart.addSeries(null, dimple.plot.bar);
-    myChart.draw(); 
+	
+	var Chart1 = new dimple.chart(svg, cleanDataWithAgeCategory);
+	Chart1.setBounds(60, 30, 510, 330)
+    Chart1.addCategoryAxis("x", ["Age category","Pclass"]); 
+    Chart1.addMeasureAxis("y", "Survived");
+    Chart1.addSeries("Pclass", dimple.plot.bar);
+    Chart1.addLegend(65, 10, 510, 20, "right");
+    Chart1.draw(); 
+
+    /*var Chart2 = new dimple.chart(svg, cleanDataWithAgeCategory);
+	Chart2.setBounds(650, 30, 510, 330)
+    Chart2.addCategoryAxis("x", ["Age category"]); 
+    Chart2.addMeasureAxis("y", "Survived");
+    Chart2.addSeries("Pclass", dimple.plot.bar);
+   // myChart.addLegend(65, 10, 510, 20, "right");
+    Chart2.draw();*/
+
+    var Chart2 = new dimple.chart(svg, cleanDataWithAgeCategory);
+	Chart2.setBounds(650, 30, 510, 330)
+    Chart2.addCategoryAxis("x", ["Age category","Pclass"]); 
+    Chart2.addMeasureAxis("y", "N° of passengers");
+    Chart2.addSeries("Pclass", dimple.plot.bar);
+   // myChart.addLegend(65, 10, 510, 20, "right");
+    Chart2.draw();
 
     }
 
