@@ -14,16 +14,18 @@ function Draw(data){
      var cleanData = data.filter(function(d) 
    	 { 
    	 	  // Add new column to sum total passenegers bu category
-          d["N° of passengers"] = 1;
+          //d["N° of passengers"] = 1;
 
-            if (d["Pclass"] != "" ) 
+            if (d["Cabin"] != "" ) 
             { 
+
+            	d["Cabin"] = "Have cabin";
                 return d; 
             } 
 
             else {
 
-            	d["Pclass"] = "Unkown";
+            	d["Cabin"] = "No cabin";
             	return d;
             }
 
@@ -74,7 +76,7 @@ function Draw(data){
  	var title = d3.select("body")
             .append("h2")
             	.attr("style", "text-align: center;")
-            	.text("Titanic survivors by Age category and Ticket class");
+            	.text("Titanic survivors (With/Without cabin) by Age category ");
 
      var svg = d3.select("body")
             .append("svg")
@@ -93,9 +95,9 @@ Dimple code
 */  
 
 	var Chart1 = new dimple.chart(svg, cleanDataWithAgeCategory);
-	    Chart1.addCategoryAxis("x", ["Age category","Pclass"]); 
+	    Chart1.addCategoryAxis("x", ["Age category","Cabin"]); 
 	    Chart1.addMeasureAxis("y", "Survived");
-	    Chart1.addSeries(["Pclass"], dimple.plot.bar);
+	    Chart1.addSeries(["Cabin"], dimple.plot.bar);
 	    Chart1.addLegend(65, 10, 1200, 20, "right");
 	    Chart1.draw(); 
   /* var myChart = new dimple.chart(svg, AgeCategoryData);
@@ -117,12 +119,7 @@ Dimple code
     myChart.addSeries(null, dimple.plot.bar);
     myChart.draw(); */
 	
-	var Chart1 = new dimple.chart(svg, cleanDataWithAgeCategory);
-    Chart1.addCategoryAxis("x", ["Age category","Pclass"]); 
-    Chart1.addMeasureAxis("y", "Survived");
-    Chart1.addSeries(["Pclass"], dimple.plot.bar);
-    Chart1.addLegend(65, 10, 1200, 20, "right");
-    Chart1.draw(); 
+	
 
     /*var Chart2 = new dimple.chart(svg, cleanDataWithAgeCategory);
 	Chart2.setBounds(650, 30, 510, 330)
