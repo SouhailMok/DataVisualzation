@@ -25,7 +25,7 @@ function Draw(data){
      });
 
      // Add new attribute:  Age category
-     var DataWithAgeCategory  = cleanData.filter(function(d) 
+     var DataWithAgeCategory  = CabinData.filter(function(d) 
      {
 
      	if (d["Age"] > 0 &&  d["Age"] <= 14 ) 
@@ -86,7 +86,7 @@ Dimple code
 
 */  
 
-	var Chart1 = new dimple.chart(svg, cleanDataWithAgeCategory);
+	var Chart1 = new dimple.chart(svg, DataWithAgeCategory);
 	    Chart1.addCategoryAxis("x", ["Age category","Cabin"]); 
 	    Chart1.addMeasureAxis("y", "Survived");
 	    Chart1.addSeries(["Cabin"], dimple.plot.bar);
