@@ -4,18 +4,10 @@
     
 function Draw(data){
 
- /*
-  Data wrangling
-  */
 
-   // Add new attribue to sum all passengers 
-
-    // Remove row with if "Pclass" is empty
-     var cleanData = data.filter(function(d) 
+    // Modify Cabin column : to have only information about owning a cabin or not.
+     var CabinData = data.filter(function(d) 
    	 { 
-   	 	  // Add new column to sum total passenegers bu category
-          //d["N° of passengers"] = 1;
-
             if (d["Cabin"] != "" ) 
             { 
 
@@ -32,8 +24,8 @@ function Draw(data){
            
      });
 
-     // Add category for ages
-     var cleanDataWithAgeCategory  = cleanData.filter(function(d) 
+     // Add new attribute:  Age category
+     var DataWithAgeCategory  = cleanData.filter(function(d) 
      {
 
      	if (d["Age"] > 0 &&  d["Age"] <= 14 ) 
@@ -100,42 +92,7 @@ Dimple code
 	    Chart1.addSeries(["Cabin"], dimple.plot.bar);
 	    Chart1.addLegend(65, 10, 1200, 20, "right");
 	    Chart1.draw(); 
-  /* var myChart = new dimple.chart(svg, AgeCategoryData);
-
-    var x = myChart.addCategoryAxis("x", "Sex"); 
-    
-    myChart.addMeasureAxis("y", "Survived");
-    myChart.addSeries("Embarked", dimple.plot.bar);
-    myChart.draw();    */
- 
-          
-    /*var myChart = new dimple.chart(svg, data);
-
-    var x = myChart.addAxis("x", "Age"); 
-    x.timeInterval = 5;
-    x.addOrderRule("Age");
   
-    myChart.addMeasureAxis("y", "Survived");
-    myChart.addSeries(null, dimple.plot.bar);
-    myChart.draw(); */
-	
-	
-
-    /*var Chart2 = new dimple.chart(svg, cleanDataWithAgeCategory);
-	Chart2.setBounds(650, 30, 510, 330)
-    Chart2.addCategoryAxis("x", ["Age category"]); 
-    Chart2.addMeasureAxis("y", "Survived");
-    Chart2.addSeries("Pclass", dimple.plot.bar);
-   // myChart.addLegend(65, 10, 510, 20, "right");
-    Chart2.draw();*/
-
-    /*var Chart2 = new dimple.chart(svg, cleanDataWithAgeCategory);
-	Chart2.setBounds(650, 30, 510, 330)
-    Chart2.addCategoryAxis("x", ["Age category","Pclass"]); 
-    Chart2.addMeasureAxis("y", "N° of passengers");
-    Chart2.addSeries("Pclass", dimple.plot.bar);
-    Chart2.addLegend(650, 10, 510, 20, "right");
-    Chart2.draw();*/
 
     }
 
