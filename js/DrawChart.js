@@ -60,7 +60,7 @@ function Draw(data){
 
  	var title = d3.select("body")
            		  .append("h2")
-            	  .text("Titanic survivors by Age category of passengers - with/without cabin");
+            	  .text("Titanic survivors by age category of passengers - with/without cabin");
 
     var svg = d3.select("body")
                 .append("svg")
