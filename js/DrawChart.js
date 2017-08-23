@@ -1,27 +1,21 @@
- "use strict";
-
- var Names = "";
-    
+"use strict";
+  
 function Draw(data){
 
-
-    // Modify Cabin column : to have only information about owning a cabin or not.
-     var CabinData = data.filter(function(d) 
-   	 { 
-            if (d["Cabin"] != "" ) 
-            { 
-
-            	d["Cabin"] = "Have cabin";
+	// Modify Cabin attribute: to have only information about owning a cabin or not.
+	var CabinData = data.filter(function(d)
+	{
+   	 	if (d["Cabin"] != "" )
+   	 		{
+   	 			d["Cabin"] = "Have cabin";
                 return d; 
-            } 
-
-            else {
-
-            	d["Cabin"] = "No cabin";
-            	return d;
             }
 
-           
+       else {
+
+       			d["Cabin"] = "No cabin";
+            	return d;
+            }
      });
 
      // Add new attribute:  Age category
@@ -31,10 +25,8 @@ function Draw(data){
      	if (d["Age"] > 0 &&  d["Age"] <= 14 ) 
             { 
                 d["Age category"] = "Children";
-                   
                 return d;
             } 
-
 
          if (d["Age"] > 14 &&  d["Age"] <= 24 ) 
             { 
@@ -53,8 +45,9 @@ function Draw(data){
                 d["Age category"] = "Seniors";
                 return d;
             } 
+	});
 
-     });
+
  /*
   
   D3.js code
@@ -66,20 +59,15 @@ function Draw(data){
 
 
  	var title = d3.select("body")
-            .append("h2")
-            	.attr("style", "text-align: center;")
-            	.text("Titanic survivors (with/without cabin) by Age category ");
+           		  .append("h2")
+            	  .text("Titanic survivors (with/without cabin) by Age category ");
 
-     var svg = d3.select("body")
-            .append("svg")
-              .attr("width", width + margin)
-              .attr("height", height + margin)
-            .append('g')
-                .attr('class','chart');     
-
-        
-      
-       
+    var svg = d3.select("body")
+                .append("svg")
+                .attr("width", width + margin)
+                .attr("height", height + margin)
+                .append('g')
+                .attr('class','chart'); 
 /*
 
 Dimple code
