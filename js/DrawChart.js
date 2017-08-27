@@ -53,7 +53,7 @@ function Draw(data){
   D3.js code
 
  */
-	var margin = 50,
+	var margin = 200,
               width = 1200 - margin,
               height = 600 - margin;
 
@@ -64,8 +64,8 @@ function Draw(data){
 
     var svg = d3.select("body")
                 .append("svg")
-                .attr("width", width + margin)
-                .attr("height", height + margin)
+                .attr("width", width)
+                .attr("height", height)
                 .append('g')
                 .attr('class','chart'); 
 /*
