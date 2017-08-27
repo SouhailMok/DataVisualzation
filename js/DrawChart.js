@@ -53,8 +53,8 @@ function Draw(data){
   D3.js code
 
  */
-	var margin = 100,
-              width = 1400 - margin,
+	var margin = 50,
+              width = 1200 - margin,
               height = 600 - margin;
 
 
