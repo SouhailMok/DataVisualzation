@@ -2,8 +2,25 @@
   
 function Draw(data){
 
+	var filtered_data = {}
+	// Add "Not Survived" column
+ filtered_data = data.filter(function(d)
+	{
+   	 	if (d["Survived"] == "0" )
+   	 		{
+   	 			d["Not Survived"] = "1";
+                return d; 
+            }
+
+       else {
+
+       			d["Not survived"] = "0";
+            	return d;
+            }
+     });
+ 
 	// Modify Cabin attribute: to have only information about owning a cabin or not.
-	var CabinData = data.filter(function(d)
+	 filtered_data = filtered_data.filter(function(d)
 	{
    	 	if (d["Cabin"] != "" )
    	 		{
@@ -19,7 +36,7 @@ function Draw(data){
      });
 
      // Add new attribute:  Age category
-     var DataWithAgeCategory  = CabinData.filter(function(d) 
+      filtered_data  = filtered_data.filter(function(d) 
      {
 
      	if (d["Age"] > 0 &&  d["Age"] <= 14 ) 
@@ -74,11 +91,11 @@ Dimple code
 
 */  
 
-	var Chart1 = new dimple.chart(svg, DataWithAgeCategory);
+	var Chart1 = new dimple.chart(svg, filtered_data);
 	    Chart1.addCategoryAxis("x", ["Age category","Cabin"]); 
-	    Chart1.addMeasureAxis("y", "Survived");
+	    Chart1.addMeasureAxis("y", ["Survived"]);
 	    Chart1.addSeries(["Cabin"], dimple.plot.bar);
-	    Chart1.addLegend(65, 10, 1200, 20, "right");
+	    Chart1.addLegend(65, 10, 800, 20, "right");
 	    Chart1.draw(); 
   
 
