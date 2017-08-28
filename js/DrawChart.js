@@ -1,92 +1,20 @@
 "use strict";
-
-var Chart = null;
-var svg = null;
-var category = "";
-
-
-
-function CleanChart(){
-
-	d3.select("g").html("");
-
-	Chart = new dimple.chart(svg);
-
-}
-
-function SelectCabin(){
-
-	category = "Cabin";
-    
-	CleanChart();
-
-	 d3.csv("./data/titanic_data.csv",Draw)
-}
-
-function SelectClass(){
-
-	category = "Pclass";
-
-	CleanChart();
-
-	 d3.csv("./data/titanic_data.csv",Draw);
-}
-
-
-function Init(){
-
-	var margin = 200,
-	    width = 1200 - margin,
-	    height = 600 - margin;
-
-
-	var Title_div = d3.select("body").append("div").attr("class","Title");
-
-	var title1 = d3.select(".Title")
-	           		  .append("h1")
-	            	  .text("Titanic survivors");
-	            	
-	var title2 = d3.select(".Title")
-	           		  .append("h3")
-	            	  .text("Cabin");
-
-
-	svg = d3.select("body")
-	            .append("svg")
-	            .attr("width", 1000)
-	            .attr("height", 400)
-	            .append('g');
-
-	Chart = new dimple.chart(svg);
-
-	category="Cabin";
-
-}
   
 function Draw(data){
 
-	var filtered_data = [];
-
+	var filtered_data = {}
 	// Add "Not Survived" column
- 	filtered_data = data.filter(function(d)
+ filtered_data = data.filter(function(d)
 	{
-   	 	d["N° of passengers"] = 1;
-        return d;
-            
-     });
-
-	// Add "Not Survived" column
- 	filtered_data = data.filter(function(d)
-	{
-   	 	if (d["Survived"] == "1" )
+   	 	if (d["Survived"] == "0" )
    	 		{
-   	 			d["Survived"] = "Yes";
+   	 			d["Not Survived"] = "1";
                 return d; 
             }
 
        else {
 
-       			d["Survived"] = "No";
+       			d["Not survived"] = "0";
             	return d;
             }
      });
@@ -96,13 +24,13 @@ function Draw(data){
 	{
    	 	if (d["Cabin"] != "" )
    	 		{
-   	 			d["Cabin"] = "With cabin";
+   	 			d["Cabin"] = "Have cabin";
                 return d; 
             }
 
        else {
 
-       			d["Cabin"] = "Without cabin";
+       			d["Cabin"] = "No cabin";
             	return d;
             }
      });
@@ -137,18 +65,39 @@ function Draw(data){
 	});
 
 
+ /*
+  
+  D3.js code
 
-		
-        Chart.data  = filtered_data;
-	    var X = Chart.addCategoryAxis("x", ["Survived",category]); 
-	   	X.addOrderRule(category);
-	    Chart.addMeasureAxis("y", ["N° of passengers"]);
-	    Chart.addSeries([category], dimple.plot.bar);
-	    var Legend = Chart.addLegend(65, 10, 800, 20, "right");
-	  
-	    Chart.draw(); 
+ */
+	var margin = 200,
+              width = 1200 - margin,
+              height = 600 - margin;
+
+
+ 	var title = d3.select("body")
+           		  .append("h2")
+            	  .text("Titanic survivors by age category of passengers - with/without cabin");
+
+    var svg = d3.select("body")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .append('g')
+                .attr('class','chart'); 
+/*
+
+Dimple code
+
+*/  
+
+	var Chart1 = new dimple.chart(svg, filtered_data);
+	    Chart1.addCategoryAxis("x", ["Age category","Cabin"]); 
+	    Chart1.addMeasureAxis("y", ["Survived"]);
+	    Chart1.addSeries(["Cabin"], dimple.plot.bar);
+	    Chart1.addLegend(65, 10, 800, 20, "right");
+	    Chart1.draw(); 
   
 
     }
-
 
