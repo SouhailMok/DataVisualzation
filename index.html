@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+    <script src="./js/FilterData.js"></script>
     <script src="./js/DrawChart.js"></script>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
@@ -18,15 +19,15 @@
     </script> 
 
     <div class = "Buttons">
-        <button onclick="SelectCabin()">Cabin</button>
+        <button onclick="SelectCategory('Cabin')">Cabin</button>
 
-        <button onclick="SelectClass()">Class</button>
+        <button onclick="SelectCategory('Pclass')">Class</button>
 
-        <button onclick="SelectAge()">Age</button>
+        <button onclick="SelectCategory('Age category')">Age</button>
 
-        <button onclick="SelectSex()">Sex</button>
+        <button onclick="SelectCategory('Sex')">Sex</button>
 
-        <button onclick="SelectPort()">Port of embarkation</button>
+        <button onclick="SelectCategory('Embarkation')">Port of embarkation</button>
     <div>
 
   </body>
