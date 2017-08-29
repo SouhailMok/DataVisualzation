@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
-  <script src="./js/DrawChart.js"></script>
-  <link rel="stylesheet" href="./css/style.css" />
-</head>
+  <head>
+    <meta charset="utf-8">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+    <script src="./js/DrawChart.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
 
-<body>
+  <body>
     <script type="text/javascript">
 
-      //  Init();
-        // Draw
-        d3.csv("./data/titanic_data.csv",Draw);
+          Init();
+         
+          d3.csv("./data/titanic_data.csv",Draw);
 
-    </script>
+    </script> 
 
- <!--<button onclick="SelectCabin()">Cabin</button>
+    <div class = "Buttons">
+        <button onclick="SelectCabin()">Cabin</button>
 
- <button onclick="SelectClass()">Class</button>-->
+        <button onclick="SelectClass()">Class</button>
 
-</body>
+        <button onclick="SelectAge()">Age</button>
+
+        <button onclick="SelectSex()">Sex</button>
+
+        <button onclick="SelectPort()">Port of embarkation</button>
+    <div>
+
+  </body>
 </html>
