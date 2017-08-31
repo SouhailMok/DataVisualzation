@@ -100,7 +100,31 @@ function Filter(data) {
                 return d;
             } 
 
-	});
+	  });
+
+      // Change "Pclass" values
+      filtered_data  = filtered_data.filter(function(d) 
+     {
+
+      if (d["Pclass"] == "1" ) 
+            { 
+                d["Class"] = "1";
+                return d;
+            } 
+
+        if (d["Pclass"] == "2" ) 
+            { 
+                d["Class"] = "2";
+                return d;
+            } 
+
+         if (d["Pclass"] == "3" ) 
+            { 
+                d["Class"] = "3";
+                return d;
+            } 
+
+    });
 
       return filtered_data;
 
