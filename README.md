@@ -5,4 +5,6 @@
 ## Feedback 
 - include all feedback you received from others on your visualization from the first sketch to the final visualization
 ## Resources
-- list any sources you consulted to create your visualization
+- https://stackoverflow.com/questions/25015266/ordering-columns-in-a-stacked-bar-chart-dimple
+- https://stackoverflow.com/questions/30090642/customizing-colors-on-dimple-js-charts
+
