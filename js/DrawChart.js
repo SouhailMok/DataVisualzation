@@ -25,9 +25,9 @@ function SelectCategory(cat){
 
 
 function Init(){
-	var margin = 200,
-		width = 1200 - margin,
-	    height = 600 - margin;
+	
+	var width = 1000;
+	var height = 600;
 
 
 	var Title_div = d3.select("body").append("div").attr("class","Title");
@@ -49,14 +49,40 @@ function Init(){
 }
   
 function Draw(data){
-	data = Filter(data);
-	Chart.data  = data;
-	var X = Chart.addCategoryAxis("x", category);
-	//X.addOrderRule(category);
+
+
+	Chart.data  = Filter(data);
+
+	Chart.addCategoryAxis("x", category);
+
+
+
 	Chart.addMeasureAxis("y", ["N° of passengers"]);
-	Chart.addSeries(["Survived"], dimple.plot.bar);
+
+	if(category == "Age category") {
+
+		var s = Chart.addSeries(["Age order","Survived"], dimple.plot.bar);
+		s.addOrderRule("Age order");
+		Chart.defaultColors = [
+		    new dimple.color("#FB998E"),
+		    new dimple.color("#C2E487"),
+		];
+
+	}
+	else {
+
+		Chart.addSeries(["Survived"], dimple.plot.bar);
+		Chart.defaultColors = [
+		    new dimple.color("#C2E487"),
+		    new dimple.color("#FB998E"),
+		];
+	}
+
+
+
 	Chart.addLegend(65, 10, 800, 20, "right");
+
 	Chart.draw(); 
+
+	var test = d3.selectAll(".dimple-axis.dimple-title").attr("style","font-family: sans-serif; font-size: 14px;font-weight: bold;")
 }
-
-
