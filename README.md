@@ -5,7 +5,7 @@ In this data visualization I want to share with users some interesting informati
 
 My first version I liked to show is the answer to a question I had when I had a quick reading to the data source: "Did the passengers, who did not have a cabin inside Titanic, have more chance to survive? 
 
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/SouhailMok/DataVisualzation/edit/master/images/verion1.png)
 
 
 ## Design
