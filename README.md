@@ -1,9 +1,9 @@
 ## Summary 
 - in no more than 4 sentences, briefly introduce your data visualization and add any context that can help readers understand it
 
-In this data visualization I want to share with users some interesting information about Titanic passengers and the chance to survive to thsi tragic event.
+In this data visualization I want to share with users some interesting information about Titanic passengers and the chance to survive to this tragic event.
 
-My first version I liked to show is the answer to a question I had when I had a quick reading to the data source: "Did the passengers, who did not have a cabin inside Titanic, have more chance to survive? 
+My first version I liked to show is the answer to a question when I had a quick reading to the data source: "Did the passengers without cabin inside Titanic, have more chance to survive? Here below the first chart that I have developed:
 
 ![alt text](https://github.com/SouhailMok/DataVisualzation/blob/master/images/version1.png)
 
