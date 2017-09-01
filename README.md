@@ -18,32 +18,23 @@ To design the graph I used Dimple.js because it permits me to implement easily t
  I asked some colleagues and friends to comment my first version of the chart and got the following feebacks:
  
  ** G.Bedu:** 
- >*Categories: Adult, Children, Youth and Seniors are not precise, there is no range.
+ >*Categories: Adult, Children, Youth and Seniors are not precise, there is no range.*
  >
- >The number of survivors is not representative, We don't know the number of victims to compare.*
+ >*The number of survivors is not representative, We don't know the number of victims to compare.*
   
   ** X.Laville **
-  >*The title is too long.
+  >*The title is too long.*
   >
-  >Blue and pink colors are confusing because the give the impression that the category used is: female and male.
+  >*Blue and pink colors are confusing because the give the impression that the category used is: female and male.*
   >
-  >The axis of Age category is not well ordered.*
+  >*The axis of Age category is not well ordered.*
 
   ** L.Beghi **
-  >*It is not evident at a first glance that the two bars correspond to the variable “with/without Cabin”, the choice of color gives the impression that the two data sets represent “Gender”.
+  >*It is not evident at a first glance that the two bars correspond to the variable “with/without Cabin”, the choice of color gives the impression that the two data sets represent “Gender”.*
   >
-  >I think the main relationship that the graph tends to establish is the correlation between survival and having/not having a cabin. 
+  >*I think the main relationship that the graph tends to establish is the correlation between survival and having/not having a cabin.* 
  
- >The question that comes to my mind is regarding the order of the data sets, why is it “Youth, Adults, Children, Seniors” and not “Children, Youth, Adults, Seniors”? Does the first order reveal any particular information?*
-
-
-
-  
-  
-  
- 
- 
- 
+ >*The question that comes to my mind is regarding the order of the data sets, why is it “Youth, Adults, Children, Seniors” and not “Children, Youth, Adults, Seniors”? Does the first order reveal any particular information?*
  
 ## Resources
 
