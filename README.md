@@ -14,7 +14,7 @@ I got several feedbacks about this chart and decided to go deeper in my analyse.
 
 To design the graph I used Dimple.js because it permits me to implement easily the grammar of graphics via simple functions and several types of chart. To represent my finding, I chose a bar chart, because I wanted only to compare the amount of survivors and non-survivors in each category. Dimple provides user friendly charts colors, however, I changed the default colors because it confused the end users (as explained in Feedbacks below). I also used colored legends to help users to find quickly the information. Finaly, I provided a summary and a menu composed of buttons to give the user more interaction with graph and permit him/her to explore and compare several categories for more information, in addition to some improvments on the titles of the chart and axes.
 
-## Feedback 
+## Feedbacks
  I asked some colleagues and friends to comment my first version of the chart and got the following feebacks:
  
  
