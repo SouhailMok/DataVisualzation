@@ -4,7 +4,7 @@ In this data visualization I want to share with users some interesting informati
 
 My first version I liked to show is the answer to some questions when I had a quick reading of the data source: "Did the passengers without cabin inside Titanic, have more chance to survive? Is it true whatever the age? Before making a chart, I imagined that passengers, who were inside cabins, were sleeping and not able to hear what is going on, so more likely to die that day. 
 
- Here below the first chart that I have developed:
+ Here below the first chart I have developed:
 
 ![alt text](https://github.com/SouhailMok/DataVisualzation/blob/master/images/version1.png)
 
