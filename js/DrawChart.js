@@ -52,12 +52,28 @@ function Init(){
 
 	Chart = new dimple.chart(svg);
 }
+
+// Make custom series according to selected category
+function AddCustomSeries(title, defaultColors, category,isLegend,  order){
+
+		d3.select(".Title2").text(title);
+		var s = Chart.addSeries(category, dimple.plot.bar);
+		if(isLegend) {
+			Chart.defaultColors = defaultColors;
+			Chart.addLegend(65, 10, 800, 20, "right");
+		}
+
+		if(order != "") s.addOrderRule("Age order");
+
+}
+
+// Add summary below the chart for conclusions
+function AddSummary(summary){
+	d3.select(".Summary").html(summary);
+}
   
 // This method create the chart: define axis, colors, legend, second title ans Summary
 function Draw(data){
-
-	d3.select(".Title2").text("Number of survived/died passengers by "+category);
-
 	Chart.data  = Filter(data);
 
 	Chart.addCategoryAxis("x", category);
@@ -66,60 +82,64 @@ function Draw(data){
 
 	// Add special parameters and a summary according to the selected category
 	if(category=="Class") {
-		Chart.addSeries(["Survived"], dimple.plot.bar);
-		Chart.defaultColors = [
-		    new dimple.color("#C2E487"),
-		    new dimple.color("#FB998E"),
-		];
-
-		d3.select(".Summary").html("To be among survivors, a passenger had to buy a first class ticket.<p>In 2nd and 3rd class, there are more victims than survivors.</p>");
-		Chart.addLegend(65, 10, 800, 20, "right")
+		AddCustomSeries("Number of survived/died passengers by Class", 
+						[new dimple.color("#C2E487"),new dimple.color("#FB998E")], 
+						["Survived"],
+						true,
+						"");
+		AddSummary("To be among survivors, a passenger had to buy a first class ticket.<p>In 2nd and 3rd class, there are more victims than survivors.</p>");
 	}
 
 	if(category=="Sex") {
 
-		Chart.addSeries(["Survived"], dimple.plot.bar);
-		Chart.defaultColors = [
-		    new dimple.color("#C2E487"),
-		    new dimple.color("#FB998E"),
-		];
+		AddCustomSeries("Number of survived/died passengers by Sex", 
+						[new dimple.color("#C2E487"),new dimple.color("#FB998E")], 
+						["Survived"],
+						true,
+						"");
+		AddSummary("Women had more chance to survive than men.<p> It seems that the priority to access emergency boats was given to women.</p>");
+	
 
-		d3.select(".Summary").html("Women had more chance to survive than men.<p> It seems that the priority to access emergency boats was given to women.<p>");
-
-		Chart.addLegend(65, 10, 800, 20, "right");
+		
 	}
 
 	if(category=="Cabin") {
 
-		Chart.addSeries(["Survived"], dimple.plot.bar);
-		Chart.defaultColors = [
-		    new dimple.color("#C2E487"),
-		    new dimple.color("#FB998E"),
-		];
+		AddCustomSeries("Number of survived/died passengers by Cabin", 
+						[new dimple.color("#C2E487"),new dimple.color("#FB998E")], 
+						["Survived"],
+						true,
+						"");
 
-		d3.select(".Summary").html("Passengers with cabin have more chance to survive.<p>We easily deduce this by comparing the amounts in green and red bars.</p>");
-
-		Chart.addLegend(65, 10, 800, 20, "right");
+		AddSummary("Passengers with cabin have more chance to survive.<p>We easily deduce this by comparing the amounts in green and red bars.</p>");
 	}
 
 	if(category=="Port of embarkation") {
 
-		var s = Chart.addSeries(null, dimple.plot.bar);
+		AddCustomSeries("Number of passengers by Port of embarkation", 
+						[], 
+						null,
+						false,
+						"");
 
-		d3.select(".Summary").text("The majority of passengers were embarked from Southampton.");
+		AddSummary("The majority of passengers were embarked from Southampton.");
 	}
 
 	if(category=="Age category") {
 
-	 s = Chart.addSeries(null, dimple.plot.bar);
+		AddCustomSeries("Number of passengers by Age category", 
+						[], 
+						null,
+						false,
+						"Age order");
 
-	 s.addOrderRule("Age order");
+		AddSummary("The majority of passengers are adults.<p> The graph looks like a normal distribution.</p>");
 
-	 d3.select(".Summary").html("The majority of passengers are adults.<p> The graph looks like a normal distribution.</p>");
 	}
 
 	Chart.draw(); 
 
-	var test = d3.selectAll(".dimple-axis.dimple-title")
-				 .attr("style","font-family: sans-serif; font-size: 14px;font-weight: bold;")
+	// Make axes titles with font-weight bold for easy reading
+	d3.selectAll(".dimple-axis.dimple-title")
+	  .attr("style","font-family: sans-serif; font-size: 14px;font-weight: bold;")
 }
