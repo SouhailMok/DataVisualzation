@@ -36,12 +36,12 @@ function Init(){
 
 
 	d3.select("body").append("div").attr("class","Title1")
-												.append("h2")
-	            	  							.text("Titanic data visualization");
+								   .append("h2")
+								   .text("Titanic data visualization");
 
 	d3.select("body").append("div").attr("class","Title2")
-												.append("h3")
-	           		 							.attr("class", ".Title2");
+								   .append("h3")
+								   .attr("class", ".Title2");
 	            	  
 	            	
 	svg = d3.select("body")
@@ -64,19 +64,19 @@ function Draw(data){
 
 	Chart.addMeasureAxis("y", ["N° of passengers"]);
 
-
-
-	if(category == "Age category") {// Special order in x-axis with Age category (order by age asc)
-
-		var s = Chart.addSeries(["Age order","Survived"], dimple.plot.bar);
-		s.addOrderRule("Age order");
+	// Add special parameters and a summary according to the selected category
+	if(category=="Class") {
+		Chart.addSeries(["Survived"], dimple.plot.bar);
 		Chart.defaultColors = [
-		    new dimple.color("#FB998E"),
 		    new dimple.color("#C2E487"),
+		    new dimple.color("#FB998E"),
 		];
 
+		d3.select(".Summary").html("To be among survivors, a passenger had to buy a first class ticket.<p>In 2nd and 3rd class, there are more victims than survivors.</p>");
+		Chart.addLegend(65, 10, 800, 20, "right")
 	}
-	else {
+
+	if(category=="Sex") {
 
 		Chart.addSeries(["Survived"], dimple.plot.bar);
 		Chart.defaultColors = [
@@ -84,36 +84,42 @@ function Draw(data){
 		    new dimple.color("#FB998E"),
 		];
 
+		d3.select(".Summary").html("Women had more chance to survive than men.<p> It seems that the priority to access emergency boats was given to women.<p>");
+
+		Chart.addLegend(65, 10, 800, 20, "right");
 	}
 
+	if(category=="Cabin") {
 
-		// Add a summary on the chart according to the selected category
-		if(category=="Class") {
-			d3.select(".Summary").text(category)
-		}
+		Chart.addSeries(["Survived"], dimple.plot.bar);
+		Chart.defaultColors = [
+		    new dimple.color("#C2E487"),
+		    new dimple.color("#FB998E"),
+		];
 
-		if(category=="Sex") {
-			d3.select(".Summary").text(category)
-		}
+		d3.select(".Summary").html("Passengers with cabin have more chance to survive.<p>We easily deduce this by comparing the amounts in green and red bars.</p>");
 
-		if(category=="Cabin") {
-			d3.select(".Summary").text(category)
-		}
+		Chart.addLegend(65, 10, 800, 20, "right");
+	}
 
-		if(category=="Port of embarkation") {
-			d3.select(".Summary").text(category)
-		}
+	if(category=="Port of embarkation") {
 
-		if(category=="Age category") {
-			d3.select(".Summary").text(category)
-		}
+		var s = Chart.addSeries(null, dimple.plot.bar);
 
+		d3.select(".Summary").text("The majority of passengers were embarked from Southampton.");
+	}
 
+	if(category=="Age category") {
 
+	 s = Chart.addSeries(null, dimple.plot.bar);
 
-	Chart.addLegend(65, 10, 800, 20, "right");
+	 s.addOrderRule("Age order");
+
+	 d3.select(".Summary").html("The majority of passengers are adults.<p> The graph looks like a normal distribution.</p>");
+	}
 
 	Chart.draw(); 
 
-	var test = d3.selectAll(".dimple-axis.dimple-title").attr("style","font-family: sans-serif; font-size: 14px;font-weight: bold;")
+	var test = d3.selectAll(".dimple-axis.dimple-title")
+				 .attr("style","font-family: sans-serif; font-size: 14px;font-weight: bold;")
 }
