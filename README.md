@@ -17,7 +17,7 @@ To design the graph I used Dimple.js because it permits me to implement easily t
 ## Feedbacks
  I asked some colleagues and friends to comment my first version of the chart and got the following feebacks:
  
- ** G.Bedu:** 
+ **G.Bedu** : 
  >*Categories: Adult, Children, Youth and Seniors are not precise, there is no range.*
  >
  >*The number of survivors is not representative, We don't know the number of victims to compare.*
@@ -33,7 +33,7 @@ To design the graph I used Dimple.js because it permits me to implement easily t
   >*It is not evident at a first glance that the two bars correspond to the variable “with/without Cabin”, the choice of color gives the impression that the two data sets represent “Gender”.*
   >
   >*I think the main relationship that the graph tends to establish is the correlation between survival and having/not having a cabin.* 
- 
+  >
  >*The question that comes to my mind is regarding the order of the data sets, why is it “Youth, Adults, Children, Seniors” and not “Children, Youth, Adults, Seniors”? Does the first order reveal any particular information?*
  
 ## Resources
