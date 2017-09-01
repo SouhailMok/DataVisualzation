@@ -24,6 +24,8 @@ To design the graph I used Dimple.js because it permits me to implement easily t
 ## Resources
 
 I used this articles to help me coding some features:
+- https://stackoverflow.com/questions/2722159/javascript-how-to-filter-object-array-based-on-attributes
 - https://stackoverflow.com/questions/25015266/ordering-columns-in-a-stacked-bar-chart-dimple
 - https://stackoverflow.com/questions/30090642/customizing-colors-on-dimple-js-charts
+- https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_border-radius
 
