@@ -25,7 +25,7 @@ To design the graph I used Dimple.js because it permits me to implement easily t
   **X.Laville**
   >*The title is too long.*
   >
-  >*Blue and pink colors are confusing because the give the impression that the category used is: female and male.*
+  >*Blue and pink colors are confusing because they give the impression that the category used is: female and male.*
   >
   >*The axis of Age category is not well ordered.*
 
