@@ -5,7 +5,7 @@ function Filter(data) {
 
   var filtered_data = [];
 
-  // Add new attribute to sum the number of passengers
+  // Add new column to sum the number of passengers
  	filtered_data = data.filter(function(d)
 	{
    	 	d["N° of passengers"] = 1;
@@ -13,7 +13,7 @@ function Filter(data) {
             
      });
 
-	// Change the "Survived" attribute value : 1 for "Survived"; 0 for "Died"
+	// Change "Survived" attribute value : 1 for "Survived"; 0 for "Died"
  	filtered_data = data.filter(function(d)
 	{
    	 	if (d["Survived"] == "1" )
@@ -45,7 +45,7 @@ function Filter(data) {
             }
      });
 
-     // Add new attribute:  Age category
+     // Add new column:  Age category
       filtered_data  = filtered_data.filter(function(d) 
      {
 
@@ -72,37 +72,37 @@ function Filter(data) {
             } 
 	});
 
-      // Change "Emabrked" value to their true values
+      // Change "Emabrked" value to its real value
       filtered_data  = filtered_data.filter(function(d) 
      {
 
      	if (d["Embarked"] == "C" ) 
             { 
-                d["Port of Embarkation"] = "Cherbourg";
+                d["Port of embarkation"] = "Cherbourg";
                 return d;
             } 
 
         if (d["Embarked"] == "S" ) 
             { 
-                d["Port of Embarkation"] = "Southampton";
+                d["Port of embarkation"] = "Southampton";
                 return d;
             } 
 
          if (d["Embarked"] == "Q" ) 
             { 
-                d["Port of Embarkation"] = "Queenstown";
+                d["Port of embarkation"] = "Queenstown";
                 return d;
             } 
 
          if (d["Embarked"] == "" ) 
             { 
-                d["Port of Embarkation"] = "Unkown";
+                d["Port of embarkation"] = "Unkown";
                 return d;
             } 
 
 	  });
 
-      // Change "Pclass" values
+      // Change "Pclass" to "class" for more understanding 
       filtered_data  = filtered_data.filter(function(d) 
      {
 

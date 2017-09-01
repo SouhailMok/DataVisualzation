@@ -1,11 +1,26 @@
 
-.Title{
+.Title1{
+
+	margin-left: 340px; 
+}
+
+.Title2{
 
 	margin-left: 340px; 
 }
 
 .Buttons {
 
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-left: 340px; 
+}
+
+.Summary{
+	margin-left: 100px;
+	margin-top: 10px;
+	border-radius: 25px;
+    border: 2px solid #99C0DB;
+    padding: 20px; 
+    width: 750px;
+    height: 50px;
 }
