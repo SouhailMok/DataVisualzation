@@ -126,6 +126,19 @@ function Filter(data) {
 
     });
 
+
+      // Convert "Age" to double
+      filtered_data  = filtered_data.filter(function(d) 
+     {
+
+      d["Age"] = Number(d["Age"]);
+      return d;
+            
+
+       
+
+    });
+
       return filtered_data;
 
 }

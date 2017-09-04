@@ -32,7 +32,7 @@ function Init(){
 	category="Cabin";
 	
 	var width = 1000;
-	var height = 350;
+	var height = 450;
 
 
 	d3.select("body").append("div").attr("class","Title1")
@@ -63,7 +63,7 @@ function AddCustomSeries(title, defaultColors, category,isLegend,  order){
 			Chart.addLegend(65, 10, 800, 20, "right");
 		}
 
-		if(order != "") s.addOrderRule("Age order");
+		if(order != "") s.addOrderRule(order);
 
 }
 
@@ -134,6 +134,18 @@ function Draw(data){
 						"Age order");
 
 		AddSummary("The majority of passengers are adults.<p> The graph looks like a normal distribution.</p>");
+
+	}
+
+	if(category=="Age") {
+
+	AddCustomSeries("Distribution of passengers ages", 
+						[], 
+						null,
+						false,
+						"Age");
+
+	AddSummary("This bar chart representation we could see a normal distribution of ages");
 
 	}
 
