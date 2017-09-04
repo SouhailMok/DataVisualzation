@@ -145,7 +145,7 @@ function Draw(data){
 						false,
 						"Age");
 
-	AddSummary("This bar chart representation we could see a normal distribution of ages");
+	AddSummary("In this bar chart representation we could see a normal distribution of ages");
 
 	}
 
