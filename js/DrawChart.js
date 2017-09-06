@@ -77,7 +77,7 @@ function Draw(data){
 	Chart.data  = Filter(data);
 
 	Chart.addCategoryAxis("x", category);
-
+    // If you want to change axis label, use: var X = Chart.addCategoryAxis("x", category); X.title = CustomTitle
 	Chart.addMeasureAxis("y", ["N° of passengers"]);
 
 	// Add special parameters and a summary according to the selected category
